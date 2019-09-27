@@ -29,7 +29,7 @@ WORKDIR /home/nodered/.node-red
 
 COPY ./server.js /home/nodered/.node-red/
 COPY ./settings.js /home/nodered/.node-red/
-COPY ./src/flows.json /home/nodered/.node-red/
+COPY ./flows.json /home/nodered/.node-red/
 COPY ./package.json /home/nodered/.node-red/
 COPY --from=build /home/nodered/.node-red/node_modules /home/nodered/.node-red/node_modules
 
