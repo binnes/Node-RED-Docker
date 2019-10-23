@@ -1,4 +1,5 @@
 # Node-RED-Docker
+
 Template project for running Node-RED in Docker
 
 ## Setting up a minishift pipeline

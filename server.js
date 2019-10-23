@@ -7,7 +7,6 @@ var http = require('http');
 var https = require('https');
 var util = require("util");
 var express = require("express");
-var prometheus = require('appmetrics-prometheus').attach();
 var crypto = require("crypto");
 try { bcrypt = require('bcrypt'); }
 catch(e) { bcrypt = require('bcryptjs'); }
