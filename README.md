@@ -10,7 +10,7 @@ The code in this repository is to provide a starting project for Node-RED, where
 2. develop your Node-RED application
 3. when you are ready to release it use the Dockerfile in this repository to build your application
 
-*[TODO : add link to tutorials explaining the steps, once they have been published]*
+See the tutorials [here](https://github.com/binnes/Node-RED-container-prod)
 
 ## Changes from a standard Node-RED install
 
