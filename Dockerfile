@@ -18,7 +18,7 @@ RUN npm install
 ## Release image
 FROM node:lts-slim
 
-RUN apt-get update && apt-get install -y perl-modules
+RUN apt-get update && apt-get install -y perl-modules && rm -rf /var/lib/apt/lists/*
 
 RUN deluser --remove-home node \
   && groupadd --gid 1000 nodered \
