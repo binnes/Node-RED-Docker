@@ -143,14 +143,38 @@ module.exports = {
     // See the comment at the top of this file on how to load the `fs` module used by
     // this setting.
     //
-    //https: {
-    //    key: fs.readFileSync('privatekey.pem'),
-    //    cert: fs.readFileSync('certificate.pem')
-    //},
+https: {
+        //key: fs.readFileSync('privatekey.pem'),
+        //cert: fs.readFileSync('certificate.pem')
+	key: require("fs").readFileSync('/data/privkey.pem'),
+        cert: require("fs").readFileSync('/data/fullchain.pem')
+    },
+//    https: {
+//      key: require("fs").readFileSync('../data/node-key.pem'),
+//      cert: require("fs").readFileSync('../data/node-cert.pem')
+//    },
+    ////https function:
+//     https: function() {
+         // This function should return the options object, or a Promise
+   //     // that resolves to the options object
+  //       return {
+    //         key: require("fs").readFileSync('data/node-key.pem'),
+      //       cert: require("fs").readFileSync('data/node-cert.pem')
+        // }
+    // },
+
+    // The following property can be used to refresh the https settings at a
+    // regular time interval in hours
+    // This requires:
+    //   - the `https` setting to be a function that can be called to get
+    //     the refreshed settings.
+    //   - Node.js 11 or later.
+    //httpsRefreshInterval : 12,
 
     // The following property can be used to cause insecure HTTP connections to
     // be redirected to HTTPS.
-    //requireHttps: true,
+    requireHttps: true,
+
 
     // The following property can be used to disable the editor. The admin API
     // is not affected by this option. To disable both the editor and the admin
