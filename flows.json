@@ -5,5 +5,51 @@
         "label": "Flow 1",
         "disabled": false,
         "info": ""
+    },
+    {
+        "id": "ce2c16bfe26849fc",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "{WIS2_Node}",
+        "port": "",
+        "tls": "",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "6ccd73fb68c57478",
+        "type": "mqtt in",
+        "z": "3af82246.3634ae",
+        "name": "",
+        "topic": "",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "ce2c16bfe26849fc",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 1,
+        "x": 530,
+        "y": 260,
+        "wires": [
+            []
+        ]
     }
 ]
