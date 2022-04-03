@@ -39,5 +39,22 @@
         "options": "{}",
         "cluster": false,
         "optionsType": "json"
+    },
+    {
+        "id": "2b4da71ea580cb01",
+        "type": "uuid",
+        "z": "3af82246.3634ae",
+        "uuidVersion": "v1",
+        "namespaceType": "",
+        "namespace": "",
+        "namespaceCustom": "",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "x": 330,
+        "y": 180,
+        "wires": [
+            []
+        ]
     }
 ]
