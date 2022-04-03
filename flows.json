@@ -31,5 +31,13 @@
         "willPayload": "",
         "willMsg": {},
         "sessionExpiry": ""
+    },
+    {
+        "id": "e4fc5135dbf065cb",
+        "type": "redis-config",
+        "name": "redis:6739",
+        "options": "{}",
+        "cluster": false,
+        "optionsType": "json"
     }
 ]
