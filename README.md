@@ -16,4 +16,4 @@ The code in this repository is to provide basic reference of a Global Broker as 
 Considering how NodeRed works, it is rather difficult (impossible?) to make dynamic the brokers configurations as well as the number of Global Brokers to connect to.
 However, by looking at the flows, it should be rather straightforward to do what is necessary to adapt to the exact use case.
 
-This is not production ready, just a tool to show what WIS2 and here the Global Broker part will work.
+This is not production ready, just a tool to show how WIS2 and in particular the Global Broker part will work.
