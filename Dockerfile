@@ -1,4 +1,4 @@
-FROM node:lts as build
+FROM node:lts-bullseye as build
 
 RUN apt-get update \
   && apt-get install -y build-essential python perl-modules
@@ -16,7 +16,7 @@ COPY ./package.json /data/
 RUN npm install
 
 ## Release image
-FROM node:lts-slim
+FROM node:lts-bullseye-slim
 
 RUN apt-get update && apt-get install -y perl-modules && rm -rf /var/lib/apt/lists/*
 

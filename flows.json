@@ -7,15 +7,14 @@
         "info": ""
     },
     {
-        "id": "ce2c16bfe26849fc",
+        "id": "61acbce598b65d5c",
         "type": "mqtt-broker",
         "name": "",
-        "broker": "{WIS2_Node}",
-        "port": "",
-        "tls": "",
+        "broker": "192.168.100.2",
+        "port": "1883",
         "clientid": "",
         "autoConnect": true,
-        "usetls": true,
+        "usetls": false,
         "protocolVersion": "4",
         "keepalive": "60",
         "cleansession": true,
@@ -32,24 +31,5 @@
         "willPayload": "",
         "willMsg": {},
         "sessionExpiry": ""
-    },
-    {
-        "id": "6ccd73fb68c57478",
-        "type": "mqtt in",
-        "z": "3af82246.3634ae",
-        "name": "",
-        "topic": "",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "ce2c16bfe26849fc",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 1,
-        "x": 530,
-        "y": 260,
-        "wires": [
-            []
-        ]
     }
 ]
