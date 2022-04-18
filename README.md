@@ -19,7 +19,7 @@ MQTT_PUB_PASSWD=
 ```
 
 ### Step 2: Edit docker-compose.yaml
-Cpoy & Paste the subsciber_mqtt_1 to get one container per WIS2Node or other broker to subscribe to.
+Cpoy & Paste the subsciber_mqtt_1 to get one container per WIS2Node or other Global Brokers to subscribe to. Do NOT subscribe to the local Global Broker.
 - Change the name of the container (make sure it is unique!)
 - Change all MQTT_SUB_* to connect to the remote broker and the the topic from that source. In the example below `wis/a/origin/FRA/#` will subscribe to all topic from France according to WIS2 agreed topic hierarchy.
 - Change ports 1st 1880:1880, 2nd 1881:1880,...
