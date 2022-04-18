@@ -1,0 +1,36 @@
+version: "3.7"
+
+services:
+  node-red:
+    container_name: subscriber_verne
+    image: golfvert/wis2globalbrokernodered
+    env_file:
+      - ./publisher.env
+    environment:
+      - TZ=Europe/Paris
+      - MQTT_SUB_HOST=192.168.0.204
+      - MQTT_SUB_PORT=1883
+      - MQTT_SUB_USER=
+      - MQTT_SUB_PASSWD=
+      - MQTT_SUB_TOPIC=wis/a/origin/FRA/#
+    ports:
+      - "1884:1880"
+    networks:
+      - wis2relay
+    depends_on:
+      - redis
+  redis:
+    container_name: redis
+    image: redis:latest
+    command: redis-server --save 20 1
+    ports:
+      - "6379:6379"
+    networks:
+      - wis2relay
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+    volumes:
+      - /Users/remy/Docker/Redis:/data
+networks:
+  wis2relay:
+    driver: bridge
