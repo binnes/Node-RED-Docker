@@ -76,5 +76,17 @@
         "x": 670,
         "y": 200,
         "wires": []
+    },
+    {
+        "id": "8a4b627e0ba3e655",
+        "type": "redis-instance",
+        "z": "3af82246.3634ae",
+        "server": "e4fc5135dbf065cb",
+        "name": "",
+        "topic": "redis",
+        "location": "flow",
+        "x": 430,
+        "y": 300,
+        "wires": []
     }
 ]
