@@ -6,7 +6,7 @@ The code in this repository is to provide basic reference of a Global Broker as 
 
 ## How to use this project
 
-1. This is the source code of the container `golfvert/wis2globalbrokernodered` and the required files to run the deduplication software in front of a Global Broket
+1. This is the source code of the container `golfvert/wis2globalbrokernodered` and the required files to run the deduplication software in front of a Global Broker
 2. The above container provides what is necessary to make a broker (eg. Mosquitto) a Global Broker for WIS2
 
 ### Step 1: Edit publisher.env
