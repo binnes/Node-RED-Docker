@@ -15,7 +15,7 @@
         "clientid": "",
         "autoConnect": true,
         "usetls": false,
-        "protocolVersion": "4",
+        "protocolVersion": "5",
         "keepalive": "60",
         "cleansession": true,
         "birthTopic": "",
@@ -41,20 +41,40 @@
         "optionsType": "json"
     },
     {
-        "id": "2b4da71ea580cb01",
-        "type": "uuid",
+        "id": "dfb7b86d8520ee8c",
+        "type": "mqtt in",
         "z": "3af82246.3634ae",
-        "uuidVersion": "v1",
-        "namespaceType": "",
-        "namespace": "",
-        "namespaceCustom": "",
         "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "x": 330,
-        "y": 180,
+        "topic": "/wis2/a/origin/#",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "61acbce598b65d5c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 460,
+        "y": 200,
         "wires": [
-            []
+            [
+                "d2bfb4f3b6d913c0"
+            ]
         ]
+    },
+    {
+        "id": "d2bfb4f3b6d913c0",
+        "type": "debug",
+        "z": "3af82246.3634ae",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 200,
+        "wires": []
     }
 ]
