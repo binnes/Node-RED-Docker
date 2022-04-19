@@ -9,6 +9,13 @@ The code in this repository is to provide basic reference of a Global Broker as 
 1. This is the source code of the container `golfvert/wis2globalbrokernodered` and the required files to run the deduplication software in front of a Global Broker
 2. configuration files to run the container available at `golfvert/wis2globalbrokernodered`
 
+## What it does ?
+
+1. Listen to subscribed topics from WIS2Node and other Gllbal Brokers (one subsciption per container)
+2. Look at the `id` in the message. 
+3. Through a redis request check if that `id` has already been seen in the last 15 minutes. If yes, simply discard the message
+4. If not, publish the message to the attached Global Broker
+
 ## How to use it ?
 
 Download 2 files:
@@ -58,3 +65,8 @@ When done, save the docker-compose.yaml and start it with `docker compose up -d`
 It will subscribe to all "remote" destinations (WIS2node(s), other Global Brokers) and will publish to the local Global Broker.
 
 This is not production ready, just a tool to show how WIS2 and in particular the Global Broker part will work.
+
+## How to modify it ?
+
+This is a fork from https://github.com/binnes/Node-RED-Docker
+Follow the documentation available here https://binnes.github.io/Node-RED-container-prod/ to tweak it to your needs.
