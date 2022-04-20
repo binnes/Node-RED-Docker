@@ -102,6 +102,22 @@
         "sessionExpiry": ""
     },
     {
+        "id": "3ca20af8a00e4653",
+        "type": "prometheus-metric-config",
+        "name": "message_subscriber",
+        "help": "Number of message received",
+        "labels": "host",
+        "mtype": "counter"
+    },
+    {
+        "id": "a566680eb78ef6ce",
+        "type": "prometheus-metric-config",
+        "name": "message_publisher",
+        "help": "Number of message published",
+        "labels": "host",
+        "mtype": "counter"
+    },
+    {
         "id": "0cca531f0a119cba",
         "type": "redis-instance",
         "z": "3af82246.3634ae",
@@ -222,7 +238,8 @@
         "wires": [
             [
                 "a6055749a2480e73",
-                "40a63b03c40afe4a"
+                "40a63b03c40afe4a",
+                "5fa573f53beb27ee"
             ],
             []
         ]
@@ -306,7 +323,8 @@
         "y": 200,
         "wires": [
             [
-                "21cd4e32d1d7de30"
+                "21cd4e32d1d7de30",
+                "b094aad8f373ee84"
             ]
         ]
     },
@@ -357,6 +375,80 @@
         "wires": [
             [
                 "b85444c3a88f3312"
+            ]
+        ]
+    },
+    {
+        "id": "dce01538e24a5176",
+        "type": "prometheus-exporter",
+        "z": "3af82246.3634ae",
+        "name": "Subscriber",
+        "metric": "3ca20af8a00e4653",
+        "x": 470,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "b094aad8f373ee84",
+        "type": "change",
+        "z": "3af82246.3634ae",
+        "name": "Prometheus",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t   \"op\":\"inc\",\t   \"labels\":{\"host\": $env(\"MQTT_SUB_HOST\")},\t   \"val\":1 \t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 290,
+        "y": 260,
+        "wires": [
+            [
+                "dce01538e24a5176"
+            ]
+        ]
+    },
+    {
+        "id": "77aa15e1cd8f8881",
+        "type": "prometheus-exporter",
+        "z": "3af82246.3634ae",
+        "name": "Publisher",
+        "metric": "a566680eb78ef6ce",
+        "x": 1120,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "5fa573f53beb27ee",
+        "type": "change",
+        "z": "3af82246.3634ae",
+        "name": "Prometheus",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t   \"op\":\"inc\",\t   \"labels\":{\"host\": $env(\"MQTT_SUB_HOST\")},\t   \"val\":1 \t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 950,
+        "y": 120,
+        "wires": [
+            [
+                "77aa15e1cd8f8881"
             ]
         ]
     }
