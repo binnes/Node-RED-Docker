@@ -104,8 +104,8 @@
     {
         "id": "3ca20af8a00e4653",
         "type": "prometheus-metric-config",
-        "name": "message_subscriber",
-        "help": "Number of message received",
+        "name": "message_subsciber",
+        "help": "Number of messages received",
         "labels": "host",
         "mtype": "counter"
     },

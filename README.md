@@ -11,10 +11,11 @@ The code in this repository is to provide basic reference of a Global Broker as 
 
 ## What it does ?
 
-1. Listen to subscribed topics from WIS2Node and other Gllbal Brokers (one subsciption per container)
+1. Listen to subscribed topics from WIS2Node and other Global Brokers (one subscription per container)
 2. Look at the `id` in the message. 
 3. Through a redis request check if that `id` has already been seen in the last 15 minutes. If yes, simply discard the message
 4. If not, publish the message to the attached Global Broker
+5. It also provides prometheus metrics available at http://@IP:1880/metrics
 
 ## How to use it ?
 
@@ -68,5 +69,5 @@ This is not production ready, just a tool to show how WIS2 and in particular the
 
 ## How to modify it ?
 
-This is a fork from https://github.com/binnes/Node-RED-Docker
+This is a fork from https://github.com/binnes/Node-RED-Docker.
 Follow the documentation available here https://binnes.github.io/Node-RED-container-prod/ to tweak it to your needs.
