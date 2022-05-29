@@ -70,7 +70,7 @@
     {
         "id": "3ca20af8a00e4653",
         "type": "prometheus-metric-config",
-        "name": "message_subsciber",
+        "name": "message_subscriber",
         "help": "Number of messages received",
         "labels": "host",
         "mtype": "counter"
