@@ -1,8 +1,7 @@
 # WIS2-GlobalBroker-NodeRed
 
-From the project for running Node-RED in Docker by binnes (https://github.com/binnes/Node-RED-Docker)
-
 The code in this repository is to provide basic reference of a Global Broker as defined in the (upcoming) technical specification of WIS2.
+The repo has been cloned from the official NodeRed repository.
 
 ## What is here ?
 
@@ -69,5 +68,4 @@ This is not production ready, just a tool to show how WIS2 and in particular the
 
 ## How to modify it ?
 
-This is a fork from https://github.com/binnes/Node-RED-Docker.
-Follow the documentation available here https://binnes.github.io/Node-RED-container-prod/ to tweak it to your needs.
+This is a fork from the official Node-Red repo. Follow official documentation to tweak it to your needs.
