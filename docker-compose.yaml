@@ -3,7 +3,9 @@ version: "3.7"
 services:
   subscriber_mqtt_1:
     container_name: subscriber_mqtt_1
-    image: golfvert/wis2globalbrokernodered
+#    image: golfvert/wis2globalbrokernodered
+#    image: docker.io/library/testing:WIS2-GlobalBrokerAntiLoop
+    image: docker.io/library/testing:node-red-build
     env_file:
       - ./publisher.env
     environment:

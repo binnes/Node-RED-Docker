@@ -121,7 +121,7 @@ module.exports = {
     // -----------------
     // To password protect the Node-RED editor and admin API, the following
     // property can be used. See http://nodered.org/docs/security.html for details.
-    adminAuth: {
+        adminAuth: {
         type: "credentials",
         users: [{
             username: "admin",
