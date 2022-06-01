@@ -8,7 +8,7 @@ The repo has been cloned from the official NodeRed repository.
 1. This is the source code of the container `golfvert/wis2globalbrokernodered` and the required files to run the deduplication software in front of a Global Broker
 2. configuration files to run the container available at `golfvert/wis2globalbrokernodered`
 
-## What it does ?
+## What does it do ?
 
 1. Listen to subscribed topics from WIS2Node and other Global Brokers (one subscription per container)
 2. Look at the `id` in the message. 
