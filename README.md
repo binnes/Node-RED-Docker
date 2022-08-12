@@ -1,15 +1,14 @@
 # WIS2-GlobalBroker-NodeRed
 
-From the project for running Node-RED in Docker by binnes (https://github.com/binnes/Node-RED-Docker)
-
 The code in this repository is to provide basic reference of a Global Broker as defined in the (upcoming) technical specification of WIS2.
+The repo has been cloned from the official NodeRed repository.
 
 ## What is here ?
 
 1. This is the source code of the container `golfvert/wis2globalbrokernodered` and the required files to run the deduplication software in front of a Global Broker
 2. configuration files to run the container available at `golfvert/wis2globalbrokernodered`
 
-## What it does ?
+## What does it do ?
 
 1. Listen to subscribed topics from WIS2Node and other Global Brokers (one subscription per container)
 2. Look at the `id` in the message. 
@@ -35,7 +34,7 @@ MQTT_PUB_PASSWD=
 ```
 
 ### Step 2: Edit docker-compose.yaml
-Copy & Paste the subsciber_mqtt_1 to get one container per WIS2Node or other Global Brokers to subscribe to. Do NOT subscribe to the local Global Broker.
+Copy & Paste the subscriber_mqtt_1 to get one container per WIS2Node or other Global Brokers to subscribe to. Do NOT subscribe to the local Global Broker.
 - Change the name of the container (make sure it is unique!)
 - Change all MQTT_SUB_* to connect to the remote broker and to the topic from that source. In the example below `wis2/a/origin/FRA/#` will subscribe to all topic from France according to WIS2 agreed topic hierarchy.
 - Change ports 1st 1880:1880, 2nd 1881:1880,...
@@ -69,5 +68,4 @@ This is not production ready, just a tool to show how WIS2 and in particular the
 
 ## How to modify it ?
 
-This is a fork from https://github.com/binnes/Node-RED-Docker.
-Follow the documentation available here https://binnes.github.io/Node-RED-container-prod/ to tweak it to your needs.
+This is a fork from the official Node-Red repo. Follow official documentation to tweak it to your needs.
