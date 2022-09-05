@@ -18,22 +18,11 @@ The repo has been cloned from the official NodeRed repository.
 
 ## How to use it ?
 
-Download 2 files:
-- publisher.env
+Download 
 - docker-compose.yaml
 
-and to edit:
+and edit:
 
-### Step 1: Edit publisher.env
-This file contains the required information to connect to the Global Broker. 
-```
-MQTT_PUB_HOST=GlobalBroker_IPAddr
-MQTT_PUB_PORT=GlobalBroker_Port
-MQTT_PUB_USER=
-MQTT_PUB_PASSWD=
-```
-
-### Step 2: Edit docker-compose.yaml
 Copy & Paste the subscriber_mqtt_1 to get one container per WIS2Node or other Global Brokers to subscribe to. Do NOT subscribe to the local Global Broker.
 - Change the name of the container (make sure it is unique!)
 - Change all MQTT_SUB_* to connect to the remote broker and to the topic from that source. In the example below `wis2/a/origin/FRA/#` will subscribe to all topic from France according to WIS2 agreed topic hierarchy.
@@ -47,11 +36,13 @@ Copy & Paste the subscriber_mqtt_1 to get one container per WIS2Node or other Gl
       - ./publisher.env
     environment:
       - TZ=Europe/Paris
-      - MQTT_SUB_HOST=Broker_IPAddr   # WIS2Node broker
-      - MQTT_SUB_PORT=Broker_Port
-      - MQTT_SUB_USER=
-      - MQTT_SUB_PASSWD=
+      - MQTT_SUB_BROKER=Broker_URL   # WIS2Node URL broker such as mqtts://broker.example.com:8883 or wss://broker.example.com:443
+      - MQTT_SUB_USERNAME=
+      - MQTT_SUB_PASSWORDD=
       - MQTT_SUB_TOPIC=Topic_to_sub   # e.g. wis2/a/origin/FRA/#
+      - MQTT_PUB_BROKER=GlobalBroker_URL   # Global Broker URL such as mqtts://globalbroker.site.com:8883 or wss://globalbroker.site.com:443
+      - MQTT_PUB_USERNAME=
+      - MQTT_PUB_PASSWORD=
     ports:
       - "1880:1880"
     networks:

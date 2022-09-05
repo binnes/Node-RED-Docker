@@ -1,6 +1,6 @@
 {
     "name": "node-red-docker",
-    "version": "2.2.2",
+    "version": "3.0.2",
     "description": "Low-code programming for event-driven applications",
     "homepage": "http://nodered.org",
     "license": "Apache-2.0",
@@ -31,7 +31,7 @@
     "dependencies": {
         "node-red-contrib-redis": "1.3.9",
         "node-red-contrib-prometheus-exporter": "1.0.5",
-        "node-red": "2.2.2"
+        "node-red": "3.0.2"
     },
     "engines": {
         "node": ">=12"
