@@ -365,7 +365,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "{\t   \"op\":\"inc\",\t   \"labels\":{\"host\": $env(\"MQTT_SUB_HOST\")},\t   \"val\":1 \t}",
+                "to": "{\t   \"op\":\"inc\",\t   \"labels\":{\"host\": $env(\"MQTT_SUB_BROKER\")},\t   \"val\":1 \t}",
                 "tot": "jsonata"
             }
         ],
@@ -402,7 +402,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "{\t   \"op\":\"inc\",\t   \"labels\":{\"host\": $env(\"MQTT_SUB_HOST\")},\t   \"val\":1 \t}",
+                "to": "{\t   \"op\":\"inc\",\t   \"labels\":{\"host\": $env(\"MQTT_SUB_BROKER\")},\t   \"val\":1 \t}",
                 "tot": "jsonata"
             }
         ],
