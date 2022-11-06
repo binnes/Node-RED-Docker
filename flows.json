@@ -66,42 +66,6 @@
         "h": 222
     },
     {
-        "id": "0e2c3f294eb753b6",
-        "type": "group",
-        "z": "3af82246.3634ae",
-        "style": {
-            "stroke": "#999999",
-            "stroke-opacity": "1",
-            "fill": "none",
-            "fill-opacity": "1",
-            "label": true,
-            "label-position": "nw",
-            "color": "#a4a4a4"
-        },
-        "nodes": [
-            "20ec172fe67348c6",
-            "5a32454d94055eac",
-            "e8e9918ab2ea8a60",
-            "ad53549c2888fe15",
-            "f0aaab7d00875d14",
-            "83eb6e6b9aadb4ad",
-            "923e6d83e67ea3db",
-            "0ba924a28af55b20",
-            "331f1c73fafe8ea7",
-            "d1007e39ed03dbdd",
-            "5af91b47829c129d",
-            "df08c4d8b258e5c5",
-            "634a216d184c5685",
-            "850ec94753e2c28e",
-            "8cb14b7b13a76f0d",
-            "ec86dc1e4cca0f7c"
-        ],
-        "x": 154,
-        "y": 859,
-        "w": 1132,
-        "h": 262
-    },
-    {
         "id": "62f91cf6e7d132d1",
         "type": "group",
         "z": "3af82246.3634ae",
@@ -127,6 +91,51 @@
         "y": 639,
         "w": 832,
         "h": 182
+    },
+    {
+        "id": "0e2c3f294eb753b6",
+        "type": "group",
+        "z": "3af82246.3634ae",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "20ec172fe67348c6",
+            "5a32454d94055eac",
+            "f0aaab7d00875d14",
+            "83eb6e6b9aadb4ad",
+            "923e6d83e67ea3db",
+            "0ba924a28af55b20",
+            "d1007e39ed03dbdd",
+            "5af91b47829c129d",
+            "df08c4d8b258e5c5",
+            "634a216d184c5685",
+            "850ec94753e2c28e",
+            "8cb14b7b13a76f0d",
+            "ec86dc1e4cca0f7c",
+            "2fb43f7ea596c984",
+            "67f1804f7d58c4e3",
+            "55162673b6a94ebc",
+            "031988bb69f85a07",
+            "88fdc7d698acb2d7",
+            "3d51c30ba2785e20",
+            "343e0c53a688e686",
+            "ad53549c2888fe15",
+            "e8e9918ab2ea8a60",
+            "c337fed9c7000a43",
+            "f8b75275aeb43797",
+            "b5bc10e1081d22fc"
+        ],
+        "x": 154,
+        "y": 879,
+        "w": 972,
+        "h": 422
     },
     {
         "id": "8f497140bcbdd802",
@@ -161,6 +170,7 @@
         "willQos": "0",
         "willPayload": "",
         "willMsg": {},
+        "userProps": "",
         "sessionExpiry": ""
     },
     {
@@ -203,6 +213,14 @@
         "type": "prometheus-metric-config",
         "name": "message_publisher",
         "help": "Number of message published",
+        "labels": "host",
+        "mtype": "counter"
+    },
+    {
+        "id": "c344793f83ad40d6",
+        "type": "prometheus-metric-config",
+        "name": "message_invalid",
+        "help": "Number of invalid messages",
         "labels": "host",
         "mtype": "counter"
     },
@@ -774,409 +792,6 @@
         "wires": []
     },
     {
-        "id": "20ec172fe67348c6",
-        "type": "comment",
-        "z": "3af82246.3634ae",
-        "g": "0e2c3f294eb753b6",
-        "name": "Anti-loop",
-        "info": "",
-        "x": 240,
-        "y": 900,
-        "wires": []
-    },
-    {
-        "id": "5a32454d94055eac",
-        "type": "mqtt out",
-        "z": "3af82246.3634ae",
-        "g": "0e2c3f294eb753b6",
-        "name": "Publisher",
-        "topic": "",
-        "qos": "2",
-        "retain": "true",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "ac0560c0180e4641",
-        "x": 1200,
-        "y": 960,
-        "wires": []
-    },
-    {
-        "id": "e8e9918ab2ea8a60",
-        "type": "change",
-        "z": "3af82246.3634ae",
-        "g": "0e2c3f294eb753b6",
-        "name": "Save msg",
-        "rules": [
-            {
-                "t": "set",
-                "p": "mqttpayload",
-                "pt": "msg",
-                "to": "payload",
-                "tot": "msg",
-                "dc": true
-            },
-            {
-                "t": "set",
-                "p": "mqtttopic",
-                "pt": "msg",
-                "to": "topic",
-                "tot": "msg",
-                "dc": true
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "[]",
-                "tot": "json"
-            },
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "mqttpayload.id",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 520,
-        "y": 980,
-        "wires": [
-            [
-                "ad53549c2888fe15"
-            ]
-        ]
-    },
-    {
-        "id": "ad53549c2888fe15",
-        "type": "redis-command",
-        "z": "3af82246.3634ae",
-        "g": "0e2c3f294eb753b6",
-        "server": "8f497140bcbdd802",
-        "command": "get",
-        "name": "",
-        "topic": "",
-        "params": "[]",
-        "paramsType": "json",
-        "payloadType": "json",
-        "block": false,
-        "x": 660,
-        "y": 980,
-        "wires": [
-            [
-                "f0aaab7d00875d14"
-            ]
-        ]
-    },
-    {
-        "id": "f0aaab7d00875d14",
-        "type": "switch",
-        "z": "3af82246.3634ae",
-        "g": "0e2c3f294eb753b6",
-        "name": "Chech ID",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "null"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 800,
-        "y": 980,
-        "wires": [
-            [
-                "83eb6e6b9aadb4ad",
-                "d1007e39ed03dbdd",
-                "850ec94753e2c28e",
-                "ec86dc1e4cca0f7c"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "83eb6e6b9aadb4ad",
-        "type": "change",
-        "z": "3af82246.3634ae",
-        "g": "0e2c3f294eb753b6",
-        "name": "Save",
-        "rules": [
-            {
-                "t": "set",
-                "p": "extid",
-                "pt": "msg",
-                "to": "msg.mqttpayload.id",
-                "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "[msg.extid,true,\"EX\",900]",
-                "tot": "jsonata"
-            },
-            {
-                "t": "delete",
-                "p": "extid",
-                "pt": "msg"
-            },
-            {
-                "t": "delete",
-                "p": "topic",
-                "pt": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 990,
-        "y": 1020,
-        "wires": [
-            [
-                "923e6d83e67ea3db"
-            ]
-        ]
-    },
-    {
-        "id": "923e6d83e67ea3db",
-        "type": "redis-command",
-        "z": "3af82246.3634ae",
-        "g": "0e2c3f294eb753b6",
-        "server": "8f497140bcbdd802",
-        "command": "set",
-        "name": "",
-        "topic": "",
-        "params": "[]",
-        "paramsType": "json",
-        "payloadType": "json",
-        "block": false,
-        "x": 1120,
-        "y": 1020,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "0ba924a28af55b20",
-        "type": "mqtt in",
-        "z": "3af82246.3634ae",
-        "g": "0e2c3f294eb753b6",
-        "name": "Subscriber",
-        "topic": "${MQTT_SUB_TOPIC}",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "8cf5f6b5.937088",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 240,
-        "y": 980,
-        "wires": [
-            [
-                "331f1c73fafe8ea7",
-                "df08c4d8b258e5c5"
-            ]
-        ]
-    },
-    {
-        "id": "331f1c73fafe8ea7",
-        "type": "json",
-        "z": "3af82246.3634ae",
-        "g": "0e2c3f294eb753b6",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 390,
-        "y": 980,
-        "wires": [
-            [
-                "e8e9918ab2ea8a60",
-                "8cb14b7b13a76f0d"
-            ]
-        ]
-    },
-    {
-        "id": "d1007e39ed03dbdd",
-        "type": "change",
-        "z": "3af82246.3634ae",
-        "g": "0e2c3f294eb753b6",
-        "name": "Prepare pub",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "mqttpayload",
-                "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "mqtttopic",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1010,
-        "y": 960,
-        "wires": [
-            [
-                "5a32454d94055eac"
-            ]
-        ]
-    },
-    {
-        "id": "5af91b47829c129d",
-        "type": "prometheus-exporter",
-        "z": "3af82246.3634ae",
-        "g": "0e2c3f294eb753b6",
-        "name": "Subscriber",
-        "metric": "3ca20af8a00e4653",
-        "x": 570,
-        "y": 1040,
-        "wires": []
-    },
-    {
-        "id": "df08c4d8b258e5c5",
-        "type": "change",
-        "z": "3af82246.3634ae",
-        "g": "0e2c3f294eb753b6",
-        "name": "Prometheus",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "{\t   \"op\":\"inc\",\t   \"labels\":{\"host\": $env(\"MQTT_SUB_BROKER\")},\t   \"val\":1 \t}",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 410,
-        "y": 1040,
-        "wires": [
-            [
-                "5af91b47829c129d"
-            ]
-        ]
-    },
-    {
-        "id": "634a216d184c5685",
-        "type": "prometheus-exporter",
-        "z": "3af82246.3634ae",
-        "g": "0e2c3f294eb753b6",
-        "name": "Publisher",
-        "metric": "a566680eb78ef6ce",
-        "x": 1180,
-        "y": 900,
-        "wires": []
-    },
-    {
-        "id": "850ec94753e2c28e",
-        "type": "change",
-        "z": "3af82246.3634ae",
-        "g": "0e2c3f294eb753b6",
-        "name": "Prometheus",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "{\t   \"op\":\"inc\",\t   \"labels\":{\"host\": $env(\"MQTT_SUB_BROKER\")},\t   \"val\":1 \t}",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1010,
-        "y": 900,
-        "wires": [
-            [
-                "634a216d184c5685"
-            ]
-        ]
-    },
-    {
-        "id": "8cb14b7b13a76f0d",
-        "type": "change",
-        "z": "3af82246.3634ae",
-        "g": "0e2c3f294eb753b6",
-        "name": "Received",
-        "rules": [
-            {
-                "t": "set",
-                "p": "last_sub",
-                "pt": "flow",
-                "to": "",
-                "tot": "date"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 520,
-        "y": 920,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "ec86dc1e4cca0f7c",
-        "type": "change",
-        "z": "3af82246.3634ae",
-        "g": "0e2c3f294eb753b6",
-        "name": "Sent",
-        "rules": [
-            {
-                "t": "set",
-                "p": "last_pub",
-                "pt": "flow",
-                "to": "",
-                "tot": "date"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 990,
-        "y": 1080,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "0a2486d0f3d8bfd5",
         "type": "comment",
         "z": "3af82246.3634ae",
@@ -1397,5 +1012,600 @@
                 "058e538b67b08227"
             ]
         ]
+    },
+    {
+        "id": "20ec172fe67348c6",
+        "type": "comment",
+        "z": "3af82246.3634ae",
+        "g": "0e2c3f294eb753b6",
+        "name": "Anti-loop",
+        "info": "",
+        "x": 240,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "5a32454d94055eac",
+        "type": "mqtt out",
+        "z": "3af82246.3634ae",
+        "g": "0e2c3f294eb753b6",
+        "name": "Publisher",
+        "topic": "",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "ac0560c0180e4641",
+        "x": 1040,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "f0aaab7d00875d14",
+        "type": "switch",
+        "z": "3af82246.3634ae",
+        "g": "0e2c3f294eb753b6",
+        "name": "Chech ID",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "null"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 680,
+        "y": 1180,
+        "wires": [
+            [
+                "83eb6e6b9aadb4ad",
+                "d1007e39ed03dbdd",
+                "850ec94753e2c28e",
+                "ec86dc1e4cca0f7c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "83eb6e6b9aadb4ad",
+        "type": "change",
+        "z": "3af82246.3634ae",
+        "g": "0e2c3f294eb753b6",
+        "name": "Save",
+        "rules": [
+            {
+                "t": "set",
+                "p": "extid",
+                "pt": "msg",
+                "to": "msg.mqttpayload.id",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[msg.extid,true,\"EX\",900]",
+                "tot": "jsonata"
+            },
+            {
+                "t": "delete",
+                "p": "extid",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "topic",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 850,
+        "y": 1200,
+        "wires": [
+            [
+                "923e6d83e67ea3db"
+            ]
+        ]
+    },
+    {
+        "id": "923e6d83e67ea3db",
+        "type": "redis-command",
+        "z": "3af82246.3634ae",
+        "g": "0e2c3f294eb753b6",
+        "server": "8f497140bcbdd802",
+        "command": "set",
+        "name": "",
+        "topic": "",
+        "params": "[]",
+        "paramsType": "json",
+        "payloadType": "json",
+        "block": false,
+        "x": 980,
+        "y": 1200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0ba924a28af55b20",
+        "type": "mqtt in",
+        "z": "3af82246.3634ae",
+        "g": "0e2c3f294eb753b6",
+        "name": "Subscriber",
+        "topic": "${MQTT_SUB_TOPIC}",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "8cf5f6b5.937088",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 1060,
+        "wires": [
+            [
+                "df08c4d8b258e5c5",
+                "2fb43f7ea596c984",
+                "8cb14b7b13a76f0d"
+            ]
+        ]
+    },
+    {
+        "id": "d1007e39ed03dbdd",
+        "type": "change",
+        "z": "3af82246.3634ae",
+        "g": "0e2c3f294eb753b6",
+        "name": "Prepare pub",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "mqttpayload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "mqtttopic",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 870,
+        "y": 1140,
+        "wires": [
+            [
+                "5a32454d94055eac"
+            ]
+        ]
+    },
+    {
+        "id": "5af91b47829c129d",
+        "type": "prometheus-exporter",
+        "z": "3af82246.3634ae",
+        "g": "0e2c3f294eb753b6",
+        "name": "Subscriber",
+        "metric": "3ca20af8a00e4653",
+        "x": 570,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "df08c4d8b258e5c5",
+        "type": "change",
+        "z": "3af82246.3634ae",
+        "g": "0e2c3f294eb753b6",
+        "name": "Prometheus",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t   \"op\":\"inc\",\t   \"labels\":{\"host\": $env(\"MQTT_SUB_BROKER\")},\t   \"val\":1 \t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 1060,
+        "wires": [
+            [
+                "5af91b47829c129d"
+            ]
+        ]
+    },
+    {
+        "id": "634a216d184c5685",
+        "type": "prometheus-exporter",
+        "z": "3af82246.3634ae",
+        "g": "0e2c3f294eb753b6",
+        "name": "Publisher",
+        "metric": "a566680eb78ef6ce",
+        "x": 1040,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "850ec94753e2c28e",
+        "type": "change",
+        "z": "3af82246.3634ae",
+        "g": "0e2c3f294eb753b6",
+        "name": "Prometheus",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t   \"op\":\"inc\",\t   \"labels\":{\"host\": $env(\"MQTT_SUB_BROKER\")},\t   \"val\":1 \t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 870,
+        "y": 1080,
+        "wires": [
+            [
+                "634a216d184c5685"
+            ]
+        ]
+    },
+    {
+        "id": "8cb14b7b13a76f0d",
+        "type": "change",
+        "z": "3af82246.3634ae",
+        "g": "0e2c3f294eb753b6",
+        "name": "Received",
+        "rules": [
+            {
+                "t": "set",
+                "p": "last_sub",
+                "pt": "flow",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ec86dc1e4cca0f7c",
+        "type": "change",
+        "z": "3af82246.3634ae",
+        "g": "0e2c3f294eb753b6",
+        "name": "Sent",
+        "rules": [
+            {
+                "t": "set",
+                "p": "last_pub",
+                "pt": "flow",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 850,
+        "y": 1260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2fb43f7ea596c984",
+        "type": "switch",
+        "z": "3af82246.3634ae",
+        "g": "0e2c3f294eb753b6",
+        "name": "Validate ?",
+        "property": "( \t       ( $env(\"MSG_CHECK_OPTION\") in [\"discard\",\"verify\"] ) ? true : false\t)\t",
+        "propertyType": "jsonata",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 400,
+        "y": 1000,
+        "wires": [
+            [
+                "67f1804f7d58c4e3"
+            ],
+            [
+                "c337fed9c7000a43"
+            ]
+        ]
+    },
+    {
+        "id": "67f1804f7d58c4e3",
+        "type": "function",
+        "z": "3af82246.3634ae",
+        "g": "0e2c3f294eb753b6",
+        "name": "Check msg",
+        "func": "let message = msg.payload;\nlet topic = msg.topic;\nlet score = 100;\nlet errors = [];\nmsg.valid = true;\n\n// Check if topic is correct\n\nif ( ! ( topic.match('^origin/a.*$') || topic.match('^cache/a.*$') ) ) reject (\"topic in incorrect\");\n\n// Check existence of id\nconst id = message.id;\n\nif (id === undefined) reject (\"id is undefined\") ;\nelse {\n    const valid_uuid = isUUID (id);\n    if ( valid_uuid == false ) {\n        score = score - 10;\n    }\n}\n\nconst version = message.version;\nif (version === undefined || version != \"v04\") reject (\"version is undefined or not correct\");\n\nconst message_type = message.type;\nif (message_type === undefined || message_type != \"Feature\") reject (\"feature is undefined or not correct\");\n\nconst geometry = message.geometry;\nif (geometry === undefined ) reject (\"geometry is undefined\");\nelse {\n    if ( geometry === null ) {}\n    else {\n        let geometry_type = geometry.type;\n        if ( geometry_type == \"Point\") {\n            let geometry_coord = geometry.coordinates;\n            if ( isArray( geometry_coord ) ) {\n                if ( geometry_coord.length > 3 ) reject (\"geometry coordinates length is not correct\");\n                else {\n                    if ( ! ( ( typeof(geometry_coord[0]) == 'number' ) && ( geometry_coord[0] >= -180 ) && ( geometry_coord[0] <= 180 ) ) ) reject (\"geometry latitude is not correct\");\n                    if ( ! ( ( typeof(geometry_coord[1]) == 'number' ) && ( geometry_coord[1] >= -90 ) && ( geometry_coord[1] <= 90 ) ) ) reject (\"geometry latitude is not correct\");\n                }\n            }\n            else reject (\"geometry is not an array\");\n        }\n        else {\n            if ( geometry_type == \"Polygon\") {\n                let geometry_coord = geometry.coordinates[0];\n                let point;\n                if ( isArray( geometry_coord ) ) {\n                    const first = geometry_coord[0];\n                    const last = geometry_coord[geometry_coord.length - 1];\n                    if ( (! isArray( first ) ) || ( !isArray( last ) ) || ( first[0] != last[0] ) || ( first[1] != last[1] ) ) reject (\"Polygon coordinates are not correct\");\n                    for (let i = 0; i < geometry_coord.length; i++) { \n                        point = geometry_coord[i];\n                        if ( isArray( point ) ) {\n                            if ( point.length != 2 ) reject (\"Point geometry coordinates length is not correct\");\n                            else {\n                                if ( ! ( ( typeof(point[0]) == 'number' ) && ( point[0] >= -180 ) && ( point[0] <= 180 ) ) ) reject (\"Point geometry latitude is not correct\");\n                                if ( ! ( ( typeof(point[1]) == 'number' ) && ( point[1] >= -90 ) && ( point[1] <= 90 ) ) ) reject (\"Point geometry latitude is not correct\");\n                            }\n                        }\n                        else reject (\"Point geometry is not an array\");\n                    }\n                }\n                else reject (\"geometry is not an array\");\n            }\n            else reject (\"geometry is not one of the agreed type (null, point, polygon\");\n        }\n    }\n}\n\nconst properties = message.properties;\nif (properties === undefined) reject (\"properties is undefined\");\nelse {\n    const integrity = properties.integrity;\n    if (integrity === undefined) score = score - 10;\n    else { \n        const method = integrity.method;\n        if ( method === undefined) reject(\"Hashing method is undefined\");\n        else { \n            if ( method == \"MD5\" ) score = score - 10;\n            else if ( method.match('^[sS][hH][aA]512$') === null ) reject(\"Hashing method is not correct\");\n        }\n        const value = integrity.value;\n        if ( value === undefined) reject(\"value is undefined\");\n    }\n    const data_id = properties.data_id;\n    if ( data_id === undefined) reject(\"data_id is undefined\");\n    else if ( data_id.match(topic.substring(topic.indexOf(\"wis\"))) === null ) reject(\"data_id is not correct\");\n\n    const pubtime = properties.pubtime;\n    if ( pubtime === undefined) reject(\"pubtime is undefined\");\n    else if ( pubtime.match('^[0-9]{4}-[0-9]{2}-[0-9]{2}[t|T| ][0-9]{2}:[0-9]{2}:[0-9]{2}\\.?[0-9]*[Z|z]$') === null ) reject(\"pubtime is not RFC3339 compliant\");\n\n    const datetime = properties.datetime;\n    const start_datetime = properties.start_datetime;\n    const end_datetime = properties.end_datetime;\n\n    if ( datetime === undefined) {\n        if ( start_datetime === undefined ) {\n            if ( end_datetime === undefined ) score = score - 10;\n            else reject(\"end_datetime is defined but start_datetime is not\") ;\n        }\n        else {\n            if ( start_datetime.match('^[0-9]{4}-[0-9]{2}-[0-9]{2}[t|T| ][0-9]{2}:[0-9]{2}:[0-9]{2}\\.?[0-9]*[Z|z]$') === null ) reject(\"start_datetime is not RFC3339 compliant\");\n            else {\n                if ( end_datetime === undefined ) reject(\"start_datetime is defined but end_datetime is not\");\n                else if ( end_datetime.match('^[0-9]{4}-[0-9]{2}-[0-9]{2}[t|T| ][0-9]{2}:[0-9]{2}:[0-9]{2}\\.?[0-9]*[Z|z]$') === null ) reject(\"end_datetime is not RFC3339 compliant\");\n            }\n        }\n    }\n    else {\n        if ( start_datetime !== undefined || end_datetime !== undefined ) reject(\"datetime and start_datetime/end_datetime are both defined\");\n        if ( datetime.match('^[0-9]{4}-[0-9]{2}-[0-9]{2}[t|T| ][0-9]{2}:[0-9]{2}:[0-9]{2}\\.?[0-9]*[Z|z]$') === null ) reject(\"datetime is not RFC3339 compliant\");\n    }\n}\n\nconst links = message.links;\nif (links === undefined) reject (\"links is undefined\");\nelse {\n    if ( isArray( links ) ) {\n        console.log(links);\n        let href, rel, mime_type;\n        let canonical_link = false;\n        for (let i = 0; i < links.length; i++) { \n            href = links[i].href;\n            if ( href === undefined) reject (\"href is undefined\");\n            if ( ! ( href.match('^http:\\/\\/.*$') || href.match('^https:\\/\\/.*$') || href.match('^sftp:\\/\\/.*$') || href.match('^ftp:\\/\\/.*$')) ) reject (\"Download protocol is incorrect\");\n            if ( href.match('^http:\\/\\/.*$') || href.match('^ftp:\\/\\/.*$') ) score = score - 20;\n            rel = links[i].rel;\n            if ( rel === undefined) reject (\"rel is undefined\");\n            if ( rel.match('^canonical$') ) canonical_link = true ;\n            else if ( ! ( rel.match('^alternate$') ) ) reject (\"rel is not correct\");\n            mime_type = links[i].type;\n            if ( mime_type === undefined) reject (\"Mime-type is undefined\");\n        }\n        if ( canonical_link == false ) reject (\"canonical link is missing\");\n    }\n    else reject (\"links is not an array\");\n}\n\nmsg.score = score;\n\nif ( errors.length != 0 ) {\n   let err = { \"errors\": errors };\n   msg.payload._comment = err;\n} \n\n\nreturn msg;\n\nfunction isUUID ( uuid ) {\n    let s = \"\" + uuid;\n    s = s.match('^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$');\n    if (s === null) {\n      return false;\n    }\n    return true;\n}\n\nfunction reject ( reason ) {\n      errors.push(reason);\n      score = 0;\n      msg.score = score;\n      msg.valid = false;\n      return msg;\n}\n\nfunction isArray( myArray ) {\n  return myArray.constructor.toString().indexOf(\"Array\") > -1;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 980,
+        "wires": [
+            [
+                "031988bb69f85a07"
+            ]
+        ]
+    },
+    {
+        "id": "55162673b6a94ebc",
+        "type": "link in",
+        "z": "3af82246.3634ae",
+        "g": "0e2c3f294eb753b6",
+        "name": "link in 1",
+        "links": [
+            "c337fed9c7000a43",
+            "f8b75275aeb43797",
+            "b5bc10e1081d22fc"
+        ],
+        "x": 305,
+        "y": 1180,
+        "wires": [
+            [
+                "e8e9918ab2ea8a60"
+            ]
+        ]
+    },
+    {
+        "id": "031988bb69f85a07",
+        "type": "switch",
+        "z": "3af82246.3634ae",
+        "g": "0e2c3f294eb753b6",
+        "name": "Valid ?",
+        "property": "valid",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 690,
+        "y": 980,
+        "wires": [
+            [
+                "f8b75275aeb43797"
+            ],
+            [
+                "343e0c53a688e686",
+                "88fdc7d698acb2d7"
+            ]
+        ]
+    },
+    {
+        "id": "88fdc7d698acb2d7",
+        "type": "switch",
+        "z": "3af82246.3634ae",
+        "g": "0e2c3f294eb753b6",
+        "name": "Discard ?",
+        "property": "(  (  $env(\"MSG_CHECK_OPTION\") = \"discard\" )  ? true : false ) ",
+        "propertyType": "jsonata",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 860,
+        "y": 1020,
+        "wires": [
+            [],
+            [
+                "b5bc10e1081d22fc"
+            ]
+        ]
+    },
+    {
+        "id": "3d51c30ba2785e20",
+        "type": "prometheus-exporter",
+        "z": "3af82246.3634ae",
+        "g": "0e2c3f294eb753b6",
+        "name": "Invalid",
+        "metric": "c344793f83ad40d6",
+        "x": 1010,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "343e0c53a688e686",
+        "type": "change",
+        "z": "3af82246.3634ae",
+        "g": "0e2c3f294eb753b6",
+        "name": "Prometheus",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t   \"op\":\"inc\",\t   \"labels\":{\"host\": $env(\"MQTT_SUB_BROKER\")},\t   \"val\":1 \t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 870,
+        "y": 980,
+        "wires": [
+            [
+                "3d51c30ba2785e20"
+            ]
+        ]
+    },
+    {
+        "id": "ad53549c2888fe15",
+        "type": "redis-command",
+        "z": "3af82246.3634ae",
+        "g": "0e2c3f294eb753b6",
+        "server": "8f497140bcbdd802",
+        "command": "get",
+        "name": "",
+        "topic": "",
+        "params": "[]",
+        "paramsType": "json",
+        "payloadType": "json",
+        "block": false,
+        "x": 540,
+        "y": 1180,
+        "wires": [
+            [
+                "f0aaab7d00875d14"
+            ]
+        ]
+    },
+    {
+        "id": "e8e9918ab2ea8a60",
+        "type": "change",
+        "z": "3af82246.3634ae",
+        "g": "0e2c3f294eb753b6",
+        "name": "Save msg",
+        "rules": [
+            {
+                "t": "set",
+                "p": "mqttpayload",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "mqtttopic",
+                "pt": "msg",
+                "to": "topic",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[]",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "mqttpayload.id",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 1180,
+        "wires": [
+            [
+                "ad53549c2888fe15"
+            ]
+        ]
+    },
+    {
+        "id": "c337fed9c7000a43",
+        "type": "link out",
+        "z": "3af82246.3634ae",
+        "g": "0e2c3f294eb753b6",
+        "name": "link out 1",
+        "mode": "link",
+        "links": [
+            "55162673b6a94ebc"
+        ],
+        "x": 495,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "f8b75275aeb43797",
+        "type": "link out",
+        "z": "3af82246.3634ae",
+        "g": "0e2c3f294eb753b6",
+        "name": "link out 2",
+        "mode": "link",
+        "links": [
+            "55162673b6a94ebc"
+        ],
+        "x": 815,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "b5bc10e1081d22fc",
+        "type": "link out",
+        "z": "3af82246.3634ae",
+        "g": "0e2c3f294eb753b6",
+        "name": "link out 3",
+        "mode": "link",
+        "links": [
+            "55162673b6a94ebc"
+        ],
+        "x": 975,
+        "y": 1020,
+        "wires": []
     }
 ]
