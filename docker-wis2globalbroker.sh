@@ -13,4 +13,4 @@ docker build --rm --no-cache \
     --build-arg BUILD_DATE="$(date +"%Y-%m-%dT%H:%M:%SZ")" \
     --build-arg TAG_SUFFIX=default \
     --file Dockerfile \
-    --tag golfvert/wis2globalbrokernodered:1.0.1 .
+    --tag golfvert/wis2globalbrokernodered:1.0.2 .
