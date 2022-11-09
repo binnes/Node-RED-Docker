@@ -1,1 +1,5 @@
-{}
+{
+    "d8d67f4bb3f5fdd4": {
+        "hostname": "MyIoTHub-Trial-1.azure-devices.net;DeviceId=My_AzureIOTdevice_1;SharedAccessKey=B3c401KXxrjrpa4Zv0Yt3A5XcoZBwxS+lS7ByzrnNMI="
+    }
+}
